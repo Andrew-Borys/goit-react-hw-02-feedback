@@ -1,8 +1,0 @@
-.buttonList {
-  display: flex;
-  margin: 0 auto;
-}
-
-.buttonListItem:not(:last-child) {
-  margin-right: 10px;
-}

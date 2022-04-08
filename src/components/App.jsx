@@ -3,6 +3,7 @@ import Statistics from './statistics';
 import FeedbackOptions from './feedbackOptions';
 import Section from './section';
 import Notification from './notification';
+import { Wraper } from './App.styled';
 
 class App extends Component {
   state = {
@@ -39,28 +40,30 @@ class App extends Component {
     );
 
     return (
-      <div>
-        <Section title={'Please live feedback'}>
-          <FeedbackOptions
-            options={Object.keys(this.state)}
-            onLeaveFeedback={this.onLeaveFeedback}
-          />
-        </Section>
-
-        <Section title={'Statistics'}>
-          {total ? (
-            <Statistics
-              good={this.state.good}
-              neutral={this.state.neutral}
-              bad={this.state.bad}
-              total={total}
-              positivePercentage={positivePercentage}
+      <>
+        <Wraper>
+          <Section title={'Please live feedback'}>
+            <FeedbackOptions
+              options={Object.keys(this.state)}
+              onLeaveFeedback={this.onLeaveFeedback}
             />
-          ) : (
-            <Notification />
-          )}
-        </Section>
-      </div>
+          </Section>
+
+          <Section title={'Statistics'}>
+            {total ? (
+              <Statistics
+                good={this.state.good}
+                neutral={this.state.neutral}
+                bad={this.state.bad}
+                total={total}
+                positivePercentage={positivePercentage}
+              />
+            ) : (
+              <Notification text={'No feedbacks given yet'} />
+            )}
+          </Section>
+        </Wraper>
+      </>
     );
   }
 }

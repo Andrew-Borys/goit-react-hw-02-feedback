@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Notification = () => {
-  return <p>No feedbeck given</p>;
+const Notification = ({ text }) => {
+  return <p style={{ display: 'flex', justifyContent: 'center' }}>{text}</p>;
 };
 
 Notification.prototype = {
-  message: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
 };
 export default Notification;
