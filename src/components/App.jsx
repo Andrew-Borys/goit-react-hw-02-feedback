@@ -38,13 +38,14 @@ class App extends Component {
     const positivePercentage = Math.round(
       this.countPositiveFeedbackPercentage()
     );
+    const keys = Object.keys(this.state);
 
     return (
       <>
         <Wraper>
           <Section title={'Please live feedback'}>
             <FeedbackOptions
-              options={Object.keys(this.state)}
+              options={keys}
               onLeaveFeedback={this.onLeaveFeedback}
             />
           </Section>
